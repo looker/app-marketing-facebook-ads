@@ -36,6 +36,8 @@ view: fb_account_date_fact {
   extends: [date_base, period_base, fb_ad_metrics_base, fb_account_key_base, ad_metrics_period_comparison_base]
 
   derived_table: {
+    distribution: "_date"
+    sortkeys: ["_date"]
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: _date { field: fact.date_date }

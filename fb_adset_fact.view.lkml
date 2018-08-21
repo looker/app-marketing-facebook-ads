@@ -47,7 +47,13 @@ view: fb_adset_key_base {
 
   dimension: adset_key_base {
     hidden: yes
-    sql: CONCAT(${campaign_key_base}, "-", CAST(${adset_id} as STRING)) ;;
+    sql:
+      {% if _dialect._name == 'redshift' %}
+        ${campaign_key_base} || '-' || CAST(${adset_id} AS VARCHAR)
+      {% else %}
+        CONCAT(${campaign_key_base}, "-", CAST(${adset_id} as STRING))
+      {% endif %}
+       ;;
   }
   dimension: key_base {
     hidden: yes
@@ -59,6 +65,8 @@ view: fb_adset_date_fact {
   extends: [fb_campaign_date_fact, fb_adset_key_base]
 
   derived_table: {
+    distribution: "adset_id"
+    sortkeys: ["adset_id"]
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: adset_id { field: fact.adset_id }

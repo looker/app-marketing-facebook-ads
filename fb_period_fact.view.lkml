@@ -94,26 +94,47 @@ view: fb_period_fact {
     dimension: key_base {
       hidden: yes
       sql:
-      CONCAT(
-        CAST(${account_id} AS STRING),
-      {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
-        "-", CAST(${campaign_id} AS STRING),
-      {% endif %}
-      {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
-        "-", CAST(${adset_id} AS STRING),
-      {% endif %}
-      {% if (ad._in_query or fact.adset_id._in_query) %}
-        "-", CAST(${ad_id} AS STRING)
-      {% endif %}
-      ) ;;
-    }
+      {% if _dialect._name == 'redshift' %}
+        CAST(${account_id} AS VARCHAR)
+          {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
+            || '-' || CAST(${campaign_id} AS VARCHAR)
+          {% endif %}
+          {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
+            || '-' || CAST(${adset_id} AS VARCHAR)
+          {% endif %}
+          {% if (ad._in_query or fact.adset_id._in_query) %}
+            '-' || CAST(${ad_id} AS VARCHAR)
+          {% endif %}
+          {% else %}
+        CONCAT(
+          CAST(${account_id} AS STRING),
+        {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
+          "-", CAST(${campaign_id} AS STRING),
+        {% endif %}
+        {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
+          "-", CAST(${adset_id} AS STRING),
+        {% endif %}
+        {% if (ad._in_query or fact.adset_id._in_query) %}
+          "-", CAST(${ad_id} AS STRING)
+        {% endif %}
+        )
+      {% endif %} ;;
+
+      }
 
     dimension: primary_key {
       primary_key: yes
       hidden: yes
-      sql: concat(CAST(${date_period} AS STRING)
+      sql:
+      {% if _dialect._name == 'redshift' %}
+        CAST(${date_period} AS VARCHAR)
+              || '|'::text || ${date_day_of_period}
+              || '|'::text || ${key_base}
+      {% else %}
+        CONCAT(CAST(${date_period} AS STRING)
               , "|", ${date_day_of_period},
               , "|", ${key_base}
-            ) ;;
+            )
+      {% endif %} ;;
     }
   }
