@@ -397,16 +397,14 @@
     explore: fb_period_fact
     type: looker_column
     fields:
-    - fact.date_date
+    - fact.date_period_dynamic_grain
     - fact.total_conversions
     - fact.average_cost_per_conversion
     - fact.average_conversion_rate
     - fact.average_cost_per_click
     - fact.average_click_rate
-    fill_fields:
-    - fact.date_date
     sorts:
-    - fact.date_date desc
+    - fact.date_period_dynamic_grain
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
