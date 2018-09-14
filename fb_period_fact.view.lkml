@@ -9,7 +9,7 @@ explore: fb_period_fact {
   view_label: "This Period"
 
   join: account {
-    from: account_fb_adapter
+    from: fb_account
     view_label: "Account"
     type: left_outer
     sql_on: ${fact.account_id} = ${account.id} ;;
@@ -17,7 +17,7 @@ explore: fb_period_fact {
   }
 
   join: campaign {
-    from: campaign_fb_adapter
+    from: fb_campaign
     view_label: "Campaign"
     type: left_outer
     sql_on: ${fact.campaign_id} = ${campaign.id} ;;
@@ -25,7 +25,7 @@ explore: fb_period_fact {
   }
 
   join: adset {
-    from: adset_fb_adapter
+    from: fb_adset
     view_label: "Adset"
     type: left_outer
     sql_on: ${fact.adset_id} = ${adset.id} ;;
@@ -33,7 +33,7 @@ explore: fb_period_fact {
   }
 
   join: ad {
-    from: ad_fb_adapter
+    from: fb_ad
     view_label: "Ad"
     type: left_outer
     sql_on: ${fact.ad_id} = ${ad.id} ;;

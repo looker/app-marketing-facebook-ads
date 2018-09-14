@@ -27,8 +27,17 @@ explore: fb_ad_date_fact {
       ${fact.date_date} = ${parent_fact.date_date};;
     relationship: many_to_one
   }
+
+  join: account {
+    from: fb_account
+    view_label: "Account"
+    type: left_outer
+    sql_on: ${fact.account_id} = ${account.id} ;;
+    relationship: many_to_one
+  }
+
   join: campaign {
-    from: campaign_fb_adapter
+    from: fb_campaign
     view_label: "Campaign"
     type: left_outer
     sql_on: ${fact.campaign_id} = ${campaign.id} ;;
@@ -36,7 +45,7 @@ explore: fb_ad_date_fact {
   }
 
   join: adset {
-    from: adset_fb_adapter
+    from: fb_adset
     view_label: "Adset"
     type: left_outer
     sql_on: ${fact.adset_id} = ${adset.id} ;;
@@ -44,7 +53,7 @@ explore: fb_ad_date_fact {
   }
 
   join: ad {
-    from: ad_fb_adapter
+    from: fb_ad
     view_label: "Ad"
     type: left_outer
     sql_on: ${fact.ad_id} = ${ad.id} ;;

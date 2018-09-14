@@ -1,13 +1,6 @@
 - dashboard: facebook_overview
+  extends: facebook_ads_base
   title: Facebook Overview
-  layout: newspaper
-  embed_style:
-    show_title: false
-    show_filters_bar: false
-    background_color: "#ffffff"
-    title_color: "#3a4245"
-    tile_text_color: "#3a4245"
-    text_tile_text_color: ''
   elements:
   - title: Click Rate
     name: Click Rate
@@ -94,6 +87,7 @@
       last_fact.cumulative_spend: Prior Period
     single_value_title: Click Rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -187,6 +181,7 @@
       last_fact.cumulative_spend: Prior Period
     single_value_title: Per Click
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -360,6 +355,7 @@
       __FILE: app_marketing_analytics/fb_overview.dashboard.lookml
       __LINE_NUM: 1347
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -540,6 +536,7 @@
     column_group_spacing_ratio:
     show_dropoff: true
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -631,6 +628,7 @@
       fact.cumulative_spend: This Period
       last_fact.cumulative_spend: Prior Period
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -722,6 +720,7 @@
       fact.cumulative_spend: This Period
       last_fact.cumulative_spend: Prior Period
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -815,6 +814,7 @@
       last_fact.cumulative_spend: Prior Period
     single_value_title: Per Conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -908,6 +908,7 @@
       last_fact.cumulative_spend: Prior Period
     single_value_title: Conversion Rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -1085,6 +1086,7 @@
       __FILE: app_marketing_analytics/fb_overview.dashboard.lookml
       __LINE_NUM: 1171
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -1155,6 +1157,7 @@
       fact.cumulative_spend: This Period
       last_fact.cumulative_spend: Prior Period
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -1255,6 +1258,7 @@
     column_group_spacing_ratio:
     show_dropoff: true
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -1263,44 +1267,3 @@
     col: 0
     width: 9
     height: 6
-  filters:
-  - name: Campaign
-    title: Campaign
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: campaign.name
-  - name: Adset
-    title: Adset
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: adset.name
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: fact.date_period_latest

@@ -1,6 +1,6 @@
 - dashboard: fb_campaign_metrics__cost_per_impression
   title: FB Campaign Metrics - Cost Per Impression
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   layout: newspaper
   elements:
   - title: Impressions To Date
@@ -177,6 +177,7 @@
     interpolation: linear
     hidden_fields: []
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -255,6 +256,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 240
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -335,6 +337,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 320
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -434,6 +437,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 529
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -544,6 +548,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 430
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -624,6 +629,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 689
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -706,6 +712,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 609
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -788,6 +795,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 771
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -871,6 +879,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
       __LINE_NUM: 854
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -879,44 +888,3 @@
     col: 9
     width: 15
     height: 6
-  filters:
-  - name: Campaign
-    title: Campaign
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: campaign.name
-  - name: Adset
-    title: Adset
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: adset.name
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: fact.date_period_latest

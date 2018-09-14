@@ -1,6 +1,6 @@
 - dashboard: fb_campaign_metrics_cost_per_click
   title: FB Campaign Metrics - Cost Per Click
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   layout: newspaper
   elements:
   - title: Cost Per Click By Age
@@ -71,8 +71,9 @@
         name: Cost per Click
         axisId: fact.average_cost_per_click
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 11
@@ -226,6 +227,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -323,8 +325,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 11
@@ -400,8 +403,9 @@
         name: Cost per Click
         axisId: fact.average_cost_per_click
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 23
@@ -478,8 +482,9 @@
         name: Cost per Click
         axisId: fact.average_cost_per_click
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 28
@@ -555,8 +560,9 @@
         name: Cost per Click
         axisId: fact.average_cost_per_click
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 23
@@ -633,8 +639,9 @@
         name: Cost per Click
         axisId: fact.average_cost_per_click
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 17
@@ -744,8 +751,9 @@
       __FILE: app_marketing_analytics/fb_campaign_metrics_cost_per_click.dashboard.lookml
       __LINE_NUM: 748
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 22
@@ -846,6 +854,7 @@
         name: This Period
         axisId: fact.average_cost_per_click
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -949,6 +958,7 @@
         name: This Period
         axisId: fact.average_cost_per_click
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period

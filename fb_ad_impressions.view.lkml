@@ -1,6 +1,7 @@
 include: "fb_ad_metrics_base.view"
 
-explore: fb_ad_impressions {
+explore: fb_ad_impressions_template {
+  extension: required
   persist_with: facebook_ads_etl_datagroup
   extends: [ad_impressions_fb_adapter]
   from: fb_ad_impressions
@@ -10,11 +11,13 @@ explore: fb_ad_impressions {
   view_label: "Impressions"
 }
 
-view: fb_ad_impressions {
+view: fb_ad_impressions_template {
+  extension: required
   extends: [date_base, period_base, fb_ad_metrics_base, ad_impressions_fb_adapter]
 }
 
-explore: fb_ad_impressions_age_and_gender {
+explore: fb_ad_impressions_age_and_gender_template {
+  extension: required
   persist_with: facebook_ads_etl_datagroup
   extends: [ad_impressions_age_and_gender_fb_adapter]
   from: fb_ad_impressions_age_and_gender
@@ -24,11 +27,13 @@ explore: fb_ad_impressions_age_and_gender {
   view_label: "Impressions by Age & Gender"
 }
 
-view: fb_ad_impressions_age_and_gender {
+view: fb_ad_impressions_age_and_gender_template {
+  extension: required
   extends: [date_base, period_base, fb_ad_metrics_base, ad_impressions_age_and_gender_fb_adapter]
 }
 
-explore: fb_ad_impressions_geo {
+explore: fb_ad_impressions_geo_template {
+  extension: required
   persist_with: facebook_ads_etl_datagroup
   extends: [ad_impressions_geo_fb_adapter]
   from: fb_ad_impressions_geo
@@ -38,11 +43,13 @@ explore: fb_ad_impressions_geo {
   view_label: "Impressions by Country"
 }
 
-view: fb_ad_impressions_geo {
+view: fb_ad_impressions_geo_template {
+  extension: required
   extends: [date_base, period_base, fb_ad_metrics_base, ad_impressions_geo_fb_adapter]
 }
 
-explore: fb_ad_impressions_platform_and_device {
+explore: fb_ad_impressions_platform_and_device_template {
+  extension: required
   persist_with: facebook_ads_etl_datagroup
   extends: [ad_impressions_platform_and_device_fb_adapter]
   from: fb_ad_impressions_platform_and_device
@@ -52,6 +59,7 @@ explore: fb_ad_impressions_platform_and_device {
   view_label: "Impressions by Platform & Device"
 }
 
-view: fb_ad_impressions_platform_and_device {
+view: fb_ad_impressions_platform_and_device_template {
+  extension: required
   extends: [date_base, period_base, fb_ad_metrics_base, ad_impressions_platform_and_device_fb_adapter]
 }
