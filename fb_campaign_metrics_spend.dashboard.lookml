@@ -1,7 +1,7 @@
 - dashboard: fb_campaign_metrics_spend
   title: FB Campaign Metrics - Spend
   layout: newspaper
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   elements:
   - title: Spend By Day of Week
     name: Spend By Day of Week
@@ -72,8 +72,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 10
@@ -150,8 +151,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 15
@@ -227,8 +229,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 0
@@ -304,8 +307,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 5
@@ -382,8 +386,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 10
@@ -452,6 +457,7 @@
       fact.cumulative_spend: This Period
       last_fact.cumulative_spend: Prior Period
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -528,8 +534,9 @@
         name: Cost
         axisId: fact.total_cost
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 10
@@ -631,8 +638,9 @@
       strikethrough: false
       fields:
     listen:
-      Campaign: fact.campaign_name
-      Adset: fact.adset_name
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
       Period: fact.period
       Period Latest: fact.date_period_latest
     row: 15

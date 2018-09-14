@@ -23,8 +23,17 @@ explore: fb_campaign_date_fact {
       ${fact.date_date} = ${parent_fact.date_date};;
     relationship: many_to_one
   }
+
+  join: account {
+    from: fb_account
+    view_label: "Account"
+    type: left_outer
+    sql_on: ${fact.account_id} = ${account.id} ;;
+    relationship: many_to_one
+  }
+
   join: campaign {
-    from: campaign_fb_adapter
+    from: fb_campaign
     view_label: "Campaign"
     type: left_outer
     sql_on: ${fact.campaign_id} = ${campaign.id} ;;

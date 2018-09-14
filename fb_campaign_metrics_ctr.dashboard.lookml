@@ -1,6 +1,6 @@
 - dashboard: fb_campaign_metrics_ctr
   title: FB Campaign Metrics - Click Through Rate
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   layout: newspaper
   elements:
   - title: Click Through Rate By Age
@@ -71,6 +71,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -228,6 +229,7 @@
         name: Cost per Click
         axisId: fact.average_cost_per_click
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -325,6 +327,7 @@
         name: Cost
         axisId: fact.total_cost
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -403,6 +406,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -481,6 +485,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -559,6 +564,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -662,6 +668,7 @@
       strikethrough: false
       fields:
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -740,6 +747,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -838,6 +846,7 @@
         name: Prior Period
         axisId: last_fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -934,6 +943,7 @@
         name: Prior Period
         axisId: last_fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period

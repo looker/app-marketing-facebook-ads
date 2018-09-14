@@ -1,6 +1,6 @@
 - dashboard: fb_campaign_metrics_conversion_rate
   title: FB Campaign Metrics - Conversion Rate
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   layout: newspaper
   elements:
   - title: Conversion Rate To Date
@@ -174,6 +174,7 @@
       __FILE: app_marketing/fb_campaign_metrics_conversion_rate.dashboard.lookml
       __LINE_NUM: 144
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -271,6 +272,7 @@
         name: Cost
         axisId: fact.total_cost
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -374,6 +376,7 @@
       strikethrough: false
       fields:
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -452,6 +455,7 @@
         name: Conversion Rate
         axisId: fact.average_conversion_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -528,6 +532,7 @@
         name: Conversion Rate
         axisId: fact.average_conversion_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -606,6 +611,7 @@
         name: Conversion Rate
         axisId: fact.average_conversion_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -684,6 +690,7 @@
         name: Conversion Rate
         axisId: fact.average_conversion_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -762,6 +769,7 @@
         name: Conversion Rate
         axisId: fact.average_conversion_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period

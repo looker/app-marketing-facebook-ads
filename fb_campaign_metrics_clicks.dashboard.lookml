@@ -1,7 +1,7 @@
 - dashboard: fb_campaign_metrics__clicks
   title: FB Campaign Metrics - Clicks
   layout: newspaper
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   elements:
   - title: Clicks To Date
     name: Clicks To Date
@@ -175,6 +175,7 @@
     interpolation: linear
     hidden_fields: []
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -253,6 +254,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 136
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -333,6 +335,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 60
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -432,6 +435,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 624
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -542,6 +546,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 791
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -622,6 +627,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 292
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -702,6 +708,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 370
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -784,6 +791,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 214
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -865,6 +873,7 @@
       __FILE: app-marketing-facebook-ads/fb_campaign_metrics_conversions.dashboard.lookml
       __LINE_NUM: 703
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -873,44 +882,3 @@
     col: 9
     width: 15
     height: 6
-  filters:
-  - name: Campaign
-    title: Campaign
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: campaign.name
-  - name: Adset
-    title: Adset
-    type: field_filter
-    default_value: ''
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: adset.name
-  - name: Period
-    title: Period
-    type: field_filter
-    default_value: 28 day
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: fact.period
-  - name: Period Latest
-    title: Period Latest
-    type: field_filter
-    default_value: 'Yes'
-    allow_multiple_values: true
-    required: false
-    model: marketing_analytics
-    explore: fb_ad_impressions
-    listens_to_filters: []
-    field: fact.date_period_latest

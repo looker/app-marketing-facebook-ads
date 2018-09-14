@@ -1,6 +1,6 @@
 - dashboard: fb_campaign_metrics_conversions
   title: FB Campaign Metrics - Conversions
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   layout: newspaper
   elements:
   - title: Conversions By Gender
@@ -73,6 +73,7 @@
         name: Conversions
         axisId: fact.total_conversions
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -149,6 +150,7 @@
         name: Conversions
         axisId: fact.total_conversions
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -227,6 +229,7 @@
         name: Conversions
         axisId: fact.total_conversions
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -305,6 +308,7 @@
         name: Conversions
         axisId: fact.total_conversions
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -383,6 +387,7 @@
         name: Conversions
         axisId: fact.total_conversions
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -540,6 +545,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -637,6 +643,7 @@
         name: Cost
         axisId: fact.total_cost
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -716,6 +723,7 @@
         name: Conversions
         axisId: fact.total_conversions
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -819,6 +827,7 @@
       strikethrough: false
       fields:
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period

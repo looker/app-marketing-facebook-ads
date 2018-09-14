@@ -1,6 +1,6 @@
 - dashboard: fb_campaign_metrics_cpa
   title: FB Campaign Metrics - Cost Per Conversion
-  extends: fb_campaign_metrics_base
+  extends: facebook_ads_base
   layout: newspaper
   elements:
   - title: Cost Per Conversion To Date
@@ -152,6 +152,7 @@
         name: Click Through Rate
         axisId: fact.average_click_rate
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -228,6 +229,7 @@
         name: Cost per Conversion
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -325,6 +327,7 @@
         name: Cost
         axisId: fact.total_cost
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -403,6 +406,7 @@
         name: Cost per Conversion
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -512,6 +516,7 @@
       __FILE: app_marketing_analytics/fb_campaign_metrics_cpa.dashboard.lookml
       __LINE_NUM: 496
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -590,6 +595,7 @@
         name: Cost per Conversion
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -668,6 +674,7 @@
         name: Cost per Conversion
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -746,6 +753,7 @@
         name: Cost per Conversion
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -849,6 +857,7 @@
         name: This Period
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period
@@ -954,6 +963,7 @@
         name: This Period Cost per Conversion
         axisId: fact.average_cost_per_conversion
     listen:
+      Account: account.name
       Campaign: campaign.name
       Adset: adset.name
       Period: fact.period

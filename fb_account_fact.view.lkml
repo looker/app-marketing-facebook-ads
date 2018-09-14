@@ -16,6 +16,14 @@ explore: fb_account_date_fact {
       ${fact.date_day_of_period} = ${last_fact.date_day_of_period} ;;
     relationship: one_to_one
   }
+
+  join: account {
+    from: fb_account
+    view_label: "Account"
+    type: left_outer
+    sql_on: ${fact.account_id} = ${account.id} ;;
+    relationship: many_to_one
+  }
 }
 
 view: fb_account_key_base {
