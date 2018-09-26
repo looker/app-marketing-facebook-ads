@@ -1,4 +1,4 @@
-- dashboard: fb_campaign_metrics__impressions
+- dashboard: fb_campaign_metrics_impressions
   title: FB Campaign Metrics - Impressions
   extends: facebook_ads_base
   layout: newspaper
