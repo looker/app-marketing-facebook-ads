@@ -1,4 +1,4 @@
-- dashboard: fb_campaign_metrics__clicks
+- dashboard: fb_campaign_metrics_clicks
   title: FB Campaign Metrics - Clicks
   layout: newspaper
   extends: facebook_ads_base
