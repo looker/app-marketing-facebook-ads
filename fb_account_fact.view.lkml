@@ -1,5 +1,6 @@
 include: "fb_ad_metrics_base.view"
 include: "fb_ad_impressions.view"
+include: "fb_date_fact.view"
 
 explore: fb_account_date_fact {
   persist_with: facebook_ads_etl_datagroup
@@ -16,12 +17,23 @@ explore: fb_account_date_fact {
       ${fact.date_day_of_period} = ${last_fact.date_day_of_period} ;;
     relationship: one_to_one
   }
-
   join: account {
     from: fb_account
     view_label: "Account"
     type: left_outer
     sql_on: ${fact.account_id} = ${account.id} ;;
+    relationship: many_to_one
+  }
+  join: total {
+    from: fb_date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_period} = ${total.date_period} ;;
+    relationship: many_to_one
+  }
+  join: last_total {
+    from: fb_date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_last_period} = ${total.date_period} ;;
     relationship: many_to_one
   }
 }
@@ -41,7 +53,7 @@ view: fb_account_key_base {
 }
 
 view: fb_account_date_fact {
-  extends: [date_base, period_base, fb_ad_metrics_base, fb_account_key_base, ad_metrics_period_comparison_base]
+  extends: [date_base, period_base, fb_ad_metrics_base, fb_account_key_base, ad_metrics_period_comparison_base, ad_metrics_weighted_period_comparison_base]
 
   derived_table: {
     distribution: "_date"

@@ -768,26 +768,30 @@
     explore: fb_period_fact
     type: looker_bar
     fields:
-    - adset.name
     - campaign.name
-    - fact.average_cost_per_conversion_period_percent_change_abs
-    - last_fact.average_cost_per_conversion
+    - adset.name
     - fact.average_cost_per_conversion
-    filters:
-      last_fact.average_cost_per_conversion: NOT NULL
-      fact.average_cost_per_conversion: NOT NULL
+    - fact.total_cost
+    - fact.total_conversions
+    - last_fact.average_cost_per_conversion
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.average_cost_per_conversion_period_percent_change
     sorts:
     - fact.average_cost_per_conversion_period_percent_change_abs desc
+    filters:
+      fact.average_cost_per_conversion_period_percent_change_abs: NOT NULL
     limit: 50
+    column_limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
+    y_axis_gridlines: false
+    show_view_names: false
+    limit_displayed_rows: true
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -797,8 +801,6 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
@@ -814,48 +816,35 @@
     conditional_formatting_include_nulls: false
     hidden_fields:
     - campaign.name
-    - fact.average_cost_per_conversion_period_percent_change_abs
+    - fact.total_cost
+    - fact.total_conversions
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.average_cost_per_conversion_period_percent_change
     series_types: {}
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
     colors:
     - "#a6b7ff"
     - "#7869df"
     - "#6e98f9"
     - "#8ac8ca"
+    - "#dc9d4f"
+    - "#dc9d4f"
+    - "#ea9895"
     - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
+    - "#ea989"
     series_colors: {}
-    series_labels:
-      fact.average_click_rate: This Period
-      last_fact.average_click_rate: Prior Period
-      fact.average_conversion_rate: This Period
-      last_fact.average_conversion_rate: Prior Period
-      last_fact.average_cost_per_conversion: Prior Period
-      fact.average_cost_per_conversion: This Period
     y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: last_fact.average_cost_per_conversion
-        name: Prior Period
-        axisId: last_fact.average_cost_per_conversion
-      - id: fact.average_cost_per_conversion
-        name: This Period
-        axisId: fact.average_cost_per_conversion
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -872,27 +861,31 @@
     explore: fb_period_fact
     type: looker_bar
     fields:
-    - ad.name
-    - adset.name
     - campaign.name
-    - fact.average_cost_per_conversion_period_percent_change_abs
-    - last_fact.average_cost_per_conversion
+    - adset.name
+    - ad.name
     - fact.average_cost_per_conversion
-    filters:
-      last_fact.average_cost_per_conversion: NOT NULL
-      fact.average_cost_per_conversion: NOT NULL
+    - fact.total_cost
+    - fact.total_conversions
+    - last_fact.average_cost_per_conversion
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.average_cost_per_conversion_period_percent_change
     sorts:
     - fact.average_cost_per_conversion_period_percent_change_abs desc
+    filters:
+      fact.average_cost_per_conversion_period_percent_change_abs: NOT NULL
     limit: 50
+    column_limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: true
     label_density: 25
     legend_position: center
     x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: true
-    limit_displayed_rows: false
+    y_axis_gridlines: false
+    show_view_names: false
+    limit_displayed_rows: true
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -902,8 +895,6 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
@@ -918,17 +909,27 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     hidden_fields:
-    - adset.name
     - campaign.name
-    - fact.average_cost_per_conversion_period_percent_change_abs
+    - adset.name
+    - fact.total_cost
+    - fact.total_conversions
+    - last_fact.total_cost
+    - last_fact.total_conversions
+    - fact.average_cost_per_conversion_period_percent_change
     series_types: {}
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
     - "#6e98f9"
     - "#8ac8ca"
+    - "#dc9d4f"
+    - "#dc9d4f"
+    - "#ea9895"
+    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
@@ -936,32 +937,9 @@
     - "#afe8fd"
     - "#ea989"
     series_colors: {}
-    series_labels:
-      fact.average_click_rate: This Period
-      last_fact.average_click_rate: Prior Period
-      fact.average_conversion_rate: This Period
-      last_fact.average_conversion_rate: Prior Period
-      last_fact.average_cost_per_conversion: Prior Period
-      fact.average_cost_per_conversion: This Period
     y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: last_fact.average_cost_per_conversion
-        name: Prior Period Cost per Conversion
-        axisId: last_fact.average_cost_per_conversion
-      - id: fact.average_cost_per_conversion
-        name: This Period Cost per Conversion
-        axisId: fact.average_cost_per_conversion
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
       Account: account.name
       Campaign: campaign.name

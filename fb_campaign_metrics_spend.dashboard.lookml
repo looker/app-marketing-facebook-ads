@@ -81,20 +81,24 @@
     col: 16
     width: 8
     height: 5
-  - title: Top Ads by Spend
+  - title: Ad Spend Change
     name: Top Ads by Spend
     model: marketing_analytics
-    explore: fb_ad_impressions
+    explore: fb_period_fact
     type: looker_bar
     fields:
-    - fact.total_cost
-    - fact.ad_name
-    - fact.adset_name
     - fact.campaign_name
+    - fact.adset_name
+    - fact.ad_name
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_cost_period_delta
     sorts:
-    - fact.total_cost desc
+    - fact.total_cost_period_delta_abs desc
+    filters:
+      fact.total_cost_period_delta_abs: ">0"
     limit: 500
-    query_timezone: America/Los_Angeles
+    column_limit: 50
     stacking: ''
     show_value_labels: true
     label_density: 25
@@ -102,7 +106,7 @@
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
-    limit_displayed_rows: false
+    limit_displayed_rows: true
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -112,44 +116,35 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
     series_types: {}
+    hidden_fields:
+    - fact.total_cost_period_delta
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    y_axes:
+    series_colors: {}
     colors:
     - "#a6b7ff"
     - "#7869df"
+    - "#ea9895"
+    - "#d06180"
     - "#6e98f9"
     - "#8ac8ca"
-    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: false
-      showValues: false
-      tickDensity: default
-      tickDensityCustom: 5
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: fact.total_cost
-        name: Cost
-        axisId: fact.total_cost
+    - "#ea989"
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
       Account: account.name
       Campaign: campaign.name
