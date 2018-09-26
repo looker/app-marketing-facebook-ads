@@ -804,21 +804,24 @@
     col: 0
     width: 9
     height: 6
-  - title: Top Ads By Cost Per Impression
-    name: Top Ads By Cost Per Impression
+  - title: Ad Cost Per Impression Change
+    name: Ad Cost Per Impression Change
     model: marketing_analytics
-    explore: fb_ad_impressions
+    explore: fb_period_fact
     type: looker_bar
     fields:
-    - fact.ad_name
-    - fact.adset_name
     - fact.campaign_name
+    - fact.adset_name
+    - fact.ad_name
     - fact.average_cost_per_impression
+    - last_fact.average_cost_per_impression
+    - fact.average_cost_per_impression_period_percent_change
     sorts:
-    - fact.average_cost_per_impression desc
+    - fact.average_cost_per_impression_period_percent_change_abs desc
+    filters:
+      fact.average_cost_per_impression_period_percent_change_abs: NOT NULL
     limit: 500
     column_limit: 50
-    query_timezone: America/Los_Angeles
     stacking: ''
     show_value_labels: true
     label_density: 25
@@ -826,7 +829,7 @@
     x_axis_gridlines: false
     y_axis_gridlines: false
     show_view_names: false
-    limit_displayed_rows: false
+    limit_displayed_rows: true
     y_axis_combined: true
     show_y_axis_labels: true
     show_y_axis_ticks: true
@@ -836,48 +839,61 @@
     show_x_axis_ticks: true
     x_axis_scale: auto
     y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
     series_types: {}
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#d06180"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea9895"
-    - "#f1e582"
-    series_colors: {}
+    hidden_fields:
+    - fact.campaign_name
+    - fact.adset_name
+    - fact.average_cost_per_impression_period_percent_change
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
     y_axes:
     - label: ''
       maxValue:
       minValue:
       orientation: bottom
-      showLabels: false
-      showValues: true
+      showLabels: true
+      showValues: false
       tickDensity: default
       tickDensityCustom:
       type: linear
       unpinAxis: false
       valueFormat:
       series:
-      - id: fact.total_conversions
-        name: Conversions
-        axisId: fact.total_conversions
-        __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
-        __LINE_NUM: 866
-      __FILE: app-marketing-facebook-ads/fb_campaign_metrics_impressions.dashboard.lookml
-      __LINE_NUM: 854
+      - id: fact.average_cost_per_click
+        name: Period Fact
+        axisId: fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/cross_channel_impressions.dashboard.lookml
+        __LINE_NUM: 921
+      - id: last_fact.average_cost_per_click
+        name: Last Period Fact
+        axisId: last_fact.average_cost_per_click
+        __FILE: app-marketing-google-ads/cross_channel_impressions.dashboard.lookml
+        __LINE_NUM: 926
+      __FILE: app-marketing-google-ads/cross_channel_impressions.dashboard.lookml
+      __LINE_NUM: 909
+    series_colors: {}
+    colors:
+    - "#a6b7ff"
+    - "#7869df"
+    - "#ea9895"
+    - "#d06180"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    x_axis_reversed: false
+    y_axis_reversed: false
     listen:
       Account: account.name
       Campaign: campaign.name

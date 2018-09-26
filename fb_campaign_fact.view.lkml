@@ -1,7 +1,7 @@
 include: "fb_account_fact.view"
 
 explore: fb_campaign_date_fact {
-  persist_with: facebook_ads_etl_datagroup
+  extends: [fb_account_date_fact]
   hidden: yes
   from: fb_campaign_date_fact
   view_name: fact
@@ -21,14 +21,6 @@ explore: fb_campaign_date_fact {
     from: fb_account_date_fact
     sql_on: ${fact.account_id} = ${parent_fact.account_id} AND
       ${fact.date_date} = ${parent_fact.date_date};;
-    relationship: many_to_one
-  }
-
-  join: account {
-    from: fb_account
-    view_label: "Account"
-    type: left_outer
-    sql_on: ${fact.account_id} = ${account.id} ;;
     relationship: many_to_one
   }
 
@@ -70,13 +62,13 @@ view: fb_campaign_date_fact {
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: campaign_id { field: fact.campaign_id }
-      column: name { field: fact.campaign_name }
+      column: campaign_name { field: fact.campaign_name }
     }
   }
   dimension: campaign_id {
     hidden: yes
   }
-  dimension: name {
+  dimension: campaign_name {
     required_fields: [account_id, campaign_id]
     label: "Campaign Name"
   }

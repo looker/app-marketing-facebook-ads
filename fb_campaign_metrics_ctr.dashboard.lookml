@@ -762,14 +762,20 @@
     explore: fb_period_fact
     type: looker_bar
     fields:
-    - ad.name
-    - adset.name
     - campaign.name
-    - fact.average_click_rate_period_percent_change_abs
-    - last_fact.average_click_rate
+    - adset.name
+    - ad.name
     - fact.average_click_rate
+    - fact.total_clicks
+    - fact.total_impressions
+    - last_fact.average_click_rate
+    - last_fact.total_clicks
+    - last_fact.total_impressions
+    - fact.average_click_rate_period_percent_change
     sorts:
     - fact.average_click_rate_period_percent_change_abs desc
+    filters:
+      fact.average_click_rate_period_percent_change_abs: NOT NULL
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -807,21 +813,25 @@
     hidden_fields:
     - adset.name
     - campaign.name
-    - fact.average_click_rate_period_percent_change_abs
+    - fact.total_clicks
+    - fact.total_impressions
+    - last_fact.total_clicks
+    - last_fact.total_impressions
+    - fact.average_click_rate_period_percent_change
     series_types: {}
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
     - "#6e98f9"
     - "#8ac8ca"
+    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea989"
+    - "#ea9895"
+    - "#f1e582"
     series_colors: {}
     series_labels:
       fact.average_click_rate: This Period
@@ -861,13 +871,19 @@
     explore: fb_period_fact
     type: looker_bar
     fields:
-    - adset.name
     - campaign.name
-    - fact.average_click_rate_period_percent_change_abs
-    - last_fact.average_click_rate
+    - adset.name
     - fact.average_click_rate
+    - fact.total_clicks
+    - fact.total_impressions
+    - last_fact.average_click_rate
+    - last_fact.total_clicks
+    - last_fact.total_impressions
+    - fact.average_click_rate_period_percent_change
     sorts:
     - fact.average_click_rate_period_percent_change_abs desc
+    filters:
+      fact.average_click_rate_period_percent_change_abs: NOT NULL
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -904,7 +920,11 @@
     conditional_formatting_include_nulls: false
     hidden_fields:
     - campaign.name
-    - fact.average_click_rate_period_percent_change_abs
+    - fact.total_clicks
+    - fact.total_impressions
+    - last_fact.total_clicks
+    - last_fact.total_impressions
+    - fact.average_click_rate_period_percent_change
     series_types: {}
     colors:
     - "#a6b7ff"

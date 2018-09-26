@@ -784,14 +784,20 @@
     explore: fb_period_fact
     type: looker_bar
     fields:
-    - ad.name
-    - adset.name
     - campaign.name
-    - fact.average_conversion_rate_period_percent_change_abs
-    - last_fact.average_conversion_rate
+    - adset.name
+    - ad.name
     - fact.average_conversion_rate
+    - fact.total_conversions
+    - fact.total_clicks
+    - last_fact.average_conversion_rate
+    - last_fact.total_conversions
+    - last_fact.total_clicks
+    - fact.average_conversion_rate_period_percent_change
     sorts:
     - fact.average_conversion_rate_period_percent_change_abs desc
+    filters:
+      fact.average_conversion_rate_period_percent_change_abs: NOT NULL
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -827,48 +833,28 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     hidden_fields:
-    - adset.name
     - campaign.name
-    - fact.average_conversion_rate_period_percent_change_abs
+    - adset.name
+    - fact.total_conversions
+    - fact.total_clicks
+    - last_fact.total_conversions
+    - last_fact.total_clicks
+    - fact.average_conversion_rate_period_percent_change
     series_types: {}
     colors:
-    - "#ea9895"
-    - "#d06180"
     - "#a6b7ff"
     - "#7869df"
     - "#6e98f9"
     - "#8ac8ca"
+    - "#d06180"
     - "#dc9d4f"
     - "#4bb86a"
     - "#a4a6a9"
     - "#a6b7ff"
     - "#afe8fd"
-    - "#ea989"
+    - "#ea9895"
+    - "#f1e582"
     series_colors: {}
-    series_labels:
-      fact.average_click_rate: This Period
-      last_fact.average_click_rate: Prior Period
-      fact.average_conversion_rate: This Period
-      last_fact.average_conversion_rate: Prior Period
-    y_axes:
-    - label: ''
-      maxValue:
-      minValue:
-      orientation: bottom
-      showLabels: true
-      showValues: false
-      tickDensity: default
-      tickDensityCustom:
-      type: linear
-      unpinAxis: false
-      valueFormat:
-      series:
-      - id: last_fact.average_conversion_rate
-        name: Prior Period
-        axisId: last_fact.average_conversion_rate
-      - id: fact.average_conversion_rate
-        name: This Period
-        axisId: fact.average_conversion_rate
     row: 29
     col: 8
     width: 8
@@ -879,13 +865,19 @@
     explore: fb_period_fact
     type: looker_bar
     fields:
-    - adset.name
     - campaign.name
-    - fact.average_conversion_rate_period_percent_change_abs
-    - last_fact.average_conversion_rate
+    - adset.name
     - fact.average_conversion_rate
+    - fact.total_conversions
+    - fact.total_clicks
+    - last_fact.average_conversion_rate
+    - last_fact.total_conversions
+    - last_fact.total_clicks
+    - fact.average_conversion_rate_period_percent_change
     sorts:
     - fact.average_conversion_rate_period_percent_change_abs desc
+    filters:
+      fact.average_conversion_rate_period_percent_change_abs: NOT NULL
     limit: 50
     query_timezone: America/Los_Angeles
     stacking: ''
@@ -922,7 +914,11 @@
     conditional_formatting_include_nulls: false
     hidden_fields:
     - campaign.name
-    - fact.average_conversion_rate_period_percent_change_abs
+    - fact.total_conversions
+    - fact.total_clicks
+    - last_fact.total_conversions
+    - last_fact.total_clicks
+    - fact.average_conversion_rate_period_percent_change
     series_types: {}
     colors:
     - "#a6b7ff"

@@ -1,7 +1,7 @@
 include: "fb_adset_fact.view"
 
 explore: fb_ad_date_fact {
-  persist_with: facebook_ads_etl_datagroup
+  extends: [fb_adset_date_fact]
   hidden: yes
   from: fb_ad_date_fact
   view_name: fact
@@ -25,30 +25,6 @@ explore: fb_ad_date_fact {
       ${fact.campaign_id} = ${parent_fact.campaign_id} AND
       ${fact.adset_id} = ${parent_fact.adset_id} AND
       ${fact.date_date} = ${parent_fact.date_date};;
-    relationship: many_to_one
-  }
-
-  join: account {
-    from: fb_account
-    view_label: "Account"
-    type: left_outer
-    sql_on: ${fact.account_id} = ${account.id} ;;
-    relationship: many_to_one
-  }
-
-  join: campaign {
-    from: fb_campaign
-    view_label: "Campaign"
-    type: left_outer
-    sql_on: ${fact.campaign_id} = ${campaign.id} ;;
-    relationship: many_to_one
-  }
-
-  join: adset {
-    from: fb_adset
-    view_label: "Adset"
-    type: left_outer
-    sql_on: ${fact.adset_id} = ${adset.id} ;;
     relationship: many_to_one
   }
 

@@ -1,4 +1,5 @@
 include: "fb_ad_metrics_base.view"
+include: "fb_date_fact.view"
 
 explore: fb_period_fact {
   persist_with: facebook_ads_etl_datagroup
@@ -56,6 +57,20 @@ explore: fb_period_fact {
     AND ${fact.account_id} = ${last_fact.account_id} ;;
     relationship: one_to_one
   }
+
+  join: total {
+    from: fb_date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_period} = ${total.date_period} ;;
+    relationship: many_to_one
+  }
+
+  join: last_total {
+    from: fb_date_fact
+    view_label: "Total This Period"
+    sql_on: ${fact.date_last_period} = ${total.date_period} ;;
+    relationship: many_to_one
+  }
 }
 
 view: fb_period_fact {
@@ -72,21 +87,33 @@ view: fb_period_fact {
       ${fb_account_date_fact.SQL_TABLE_NAME}
     {% endif %} ;;
 
+    dimension: account_name {
+      required_fields: [account_id]
+    }
     dimension: account_id {
       hidden: yes
+    }
+    dimension: campaign_name {
+      required_fields: [campaign_id]
     }
     dimension: campaign_id {
       hidden: yes
     }
+    dimension: adset_name {
+      required_fields: [adset_id]
+    }
     dimension: adset_id {
       hidden: yes
+    }
+    dimension: ad_name {
+      required_fields: [ad_id]
     }
     dimension: ad_id {
       hidden: yes
     }
-    dimension: criterion_id {
-      hidden: yes
-    }
+#     dimension: criterion_id {
+#       hidden: yes
+#     }
     dimension: _date {
       type: date_raw
     }
