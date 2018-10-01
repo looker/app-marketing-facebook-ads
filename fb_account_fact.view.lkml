@@ -32,8 +32,8 @@ explore: fb_account_date_fact {
   }
   join: last_total {
     from: fb_date_fact
-    view_label: "Total This Period"
-    sql_on: ${fact.date_last_period} = ${total.date_period} ;;
+    view_label: "Total Last Period"
+    sql_on: ${fact.date_last_period} = ${last_total.date_period} ;;
     relationship: many_to_one
   }
 }
