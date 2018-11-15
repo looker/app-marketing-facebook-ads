@@ -132,7 +132,19 @@ view: fb_period_fact {
           {% if (ad._in_query or fact.adset_id._in_query) %}
             '-' || CAST(${ad_id} AS VARCHAR)
           {% endif %}
-          {% else %}
+      {% elsif _dialect._name == 'snowflake' %}
+        TO_CHAR(${external_customer_id})
+        || '-' || TO_CHAR(${account_id})
+        {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
+          || '-' || TO_CHAR(${campaign_id})
+        {% endif %}
+        {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
+          || '-' || TO_CHAR(${adset_id})
+        {% endif %}
+        {% if (ad._in_query or fact.adset_id._in_query) %}
+          || '-' || TO_CHAR(${ad_id})
+        {% endif %}
+        {% else %}
         CONCAT(
           CAST(${account_id} AS STRING),
         {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
@@ -157,6 +169,10 @@ view: fb_period_fact {
         CAST(${date_period} AS VARCHAR)
               || '|'::text || ${date_day_of_period}
               || '|'::text || ${key_base}
+      {% elsif _dialect._name == 'snowflake' %}
+        TO_CHAR(${date_period})
+              || '-' || ${date_day_of_period}
+              || '-' || ${key_base}
       {% else %}
         CONCAT(CAST(${date_period} AS STRING)
               , "|", ${date_day_of_period},

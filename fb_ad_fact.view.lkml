@@ -42,12 +42,14 @@ view: fb_ad_key_base {
   extension: required
 
   dimension: ad_key_base {
-    hidden: no
+    hidden: yes
     sql:
-    {% if _dialect._name == 'redshift' %}
+      {% if _dialect._name == 'redshift' %}
         ${adset_key_base} || '-' || CAST(${ad_id} AS VARCHAR)
+      {% elsif _dialect._name == 'snowflake' %}
+        ${adset_key_base} || '-' || TO_CHAR(${ad_id})
       {% else %}
-        CONCAT(${adset_key_base}, "-", CAST(${ad_id} as TEXT))
+        CONCAT(${adset_key_base}, "-", CAST(${ad_id} as STRING))
       {% endif %}
        ;;
   }

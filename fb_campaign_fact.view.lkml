@@ -42,6 +42,8 @@ view: fb_campaign_key_base {
     sql:
       {% if _dialect._name == 'redshift' %}
         ${account_key_base} || '-' || CAST(${campaign_id} AS VARCHAR)
+      {% elsif _dialect._name == 'snowflake' %}
+        ${account_key_base} || '-' || TO_CHAR(${campaign_id})
       {% else %}
         CONCAT(${account_key_base}, "-", CAST(${campaign_id} as STRING))
       {% endif %}
