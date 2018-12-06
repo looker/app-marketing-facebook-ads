@@ -133,8 +133,7 @@ view: fb_period_fact {
             '-' || CAST(${ad_id} AS VARCHAR)
           {% endif %}
       {% elsif _dialect._name == 'snowflake' %}
-        TO_CHAR(${external_customer_id})
-        || '-' || TO_CHAR(${account_id})
+        TO_CHAR(${account_id})
         {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
           || '-' || TO_CHAR(${campaign_id})
         {% endif %}
