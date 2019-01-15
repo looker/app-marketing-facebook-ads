@@ -71,6 +71,10 @@
       - id: fact.total_cost
         name: Cost
         axisId: fact.total_cost
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 71
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 59
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -81,80 +85,6 @@
     col: 16
     width: 8
     height: 5
-  - title: Ad Spend Change
-    name: Top Ads by Spend
-    model: marketing_analytics
-    explore: fb_period_fact
-    type: looker_bar
-    fields:
-    - fact.campaign_name
-    - fact.adset_name
-    - fact.ad_name
-    - fact.total_cost
-    - last_fact.total_cost
-    - fact.total_cost_period_delta
-    sorts:
-    - fact.total_cost_period_delta_abs desc
-    filters:
-      fact.total_cost_period_delta_abs: ">0"
-    limit: 500
-    column_limit: 50
-    stacking: ''
-    show_value_labels: true
-    label_density: 25
-    legend_position: center
-    x_axis_gridlines: false
-    y_axis_gridlines: false
-    show_view_names: false
-    limit_displayed_rows: true
-    y_axis_combined: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    x_axis_scale: auto
-    y_axis_scale_mode: linear
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    series_types: {}
-    hidden_fields:
-    - fact.total_cost_period_delta
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '10'
-    y_axes:
-    series_colors: {}
-    colors:
-    - "#a6b7ff"
-    - "#7869df"
-    - "#ea9895"
-    - "#d06180"
-    - "#6e98f9"
-    - "#8ac8ca"
-    - "#dc9d4f"
-    - "#4bb86a"
-    - "#a4a6a9"
-    - "#a6b7ff"
-    - "#afe8fd"
-    - "#ea989"
-    x_axis_reversed: false
-    y_axis_reversed: false
-    listen:
-      Account: account.name
-      Campaign: campaign.name
-      Adset: adset.name
-      Period: fact.period
-      Period Latest: fact.date_period_latest
-    row: 15
-    col: 16
-    width: 8
-    height: 6
   - title: Spend By Device
     name: Spend By Device
     model: marketing_analytics
@@ -164,7 +94,7 @@
     - fact.total_cost
     - fact.device_type
     filters:
-     fact.total_cost: ">0"
+      fact.total_cost: ">0"
     sorts:
     - fact.total_cost desc
     limit: 500
@@ -223,6 +153,10 @@
       - id: fact.total_cost
         name: Cost
         axisId: fact.total_cost
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 223
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 211
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -242,7 +176,7 @@
     - fact.total_cost
     - fact.publisher_platform
     filters:
-     fact.total_cost: ">0"
+      fact.total_cost: ">0"
     sorts:
     - fact.total_cost desc
     limit: 500
@@ -301,6 +235,10 @@
       - id: fact.total_cost
         name: Cost
         axisId: fact.total_cost
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 301
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 289
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -320,7 +258,7 @@
     - fact.gender
     - fact.total_cost
     filters:
-     fact.total_cost: ">0"
+      fact.total_cost: ">0"
     sorts:
     - fact.total_cost desc
     limit: 500
@@ -380,6 +318,10 @@
       - id: fact.total_cost
         name: Cost
         axisId: fact.total_cost
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 380
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 368
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -528,6 +470,10 @@
       - id: fact.total_cost
         name: Cost
         axisId: fact.total_cost
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 528
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 516
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -617,6 +563,10 @@
       - id: fact.total_cost
         name: Cost
         axisId: fact.total_cost
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 617
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 605
     conditional_formatting:
     - type: low to high
       value:
@@ -628,10 +578,14 @@
         - "#F36254"
         - "#FCF758"
         - "#4FBC89"
+        __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+        __LINE_NUM: 626
       bold: false
       italic: false
       strikethrough: false
       fields:
+      __FILE: 11a3be783089587ef3a8c30a8d13bf95a8f13048065b5be0f6d9567d72a74c54fbed4691/fb_campaign_metrics_spend.dashboard.lookml
+      __LINE_NUM: 621
     listen:
       Account: account.name
       Campaign: campaign.name
@@ -640,5 +594,98 @@
       Period Latest: fact.date_period_latest
     row: 15
     col: 0
-    width: 16
-    height: 6
+    width: 9
+    height: 7
+  - title: Ad Spend Change
+    name: Ad Spend Change
+    model: marketing_analytics
+    explore: fb_period_fact
+    type: looker_bar
+    fields:
+    - fact.campaign_name
+    - fact.adset_name
+    - fact.ad_name
+    - fact.total_cost
+    - last_fact.total_cost
+    - fact.total_cost_period_delta
+    filters:
+      fact.total_cost_period_delta_abs: ">0"
+    sorts:
+    - fact.total_cost_period_delta desc
+    limit: 500
+    column_limit: 50
+    stacking: ''
+    colors:
+    - "#a6b7ff"
+    - "#7869df"
+    - "#ea9895"
+    - "#d06180"
+    - "#6e98f9"
+    - "#8ac8ca"
+    - "#dc9d4f"
+    - "#4bb86a"
+    - "#a4a6a9"
+    - "#a6b7ff"
+    - "#afe8fd"
+    - "#ea989"
+    show_value_labels: true
+    label_density: 25
+    legend_position: center
+    x_axis_gridlines: false
+    y_axis_gridlines: false
+    show_view_names: false
+    point_style: none
+    series_colors: {}
+    series_types: {}
+    limit_displayed_rows: true
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '10'
+    y_axes:
+    - label: ''
+      orientation: bottom
+      series:
+      - id: fact.total_cost
+        name: This Period
+        axisId: fact.total_cost
+      - id: last_fact.total_cost
+        name: Prior Period
+        axisId: last_fact.total_cost
+      showLabels: false
+      showValues: false
+      unpinAxis: false
+      tickDensity: default
+      tickDensityCustom: 5
+      type: linear
+    y_axis_combined: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    x_axis_scale: auto
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields:
+    - fact.total_cost_period_delta
+    - fact.campaign_name
+    - fact.adset_name
+    listen:
+      Account: account.name
+      Campaign: campaign.name
+      Adset: adset.name
+      Period: fact.period
+      Period Latest: fact.date_period_latest
+    row: 15
+    col: 9
+    width: 15
+    height: 7
