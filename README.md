@@ -62,9 +62,9 @@ For example:
 
 marketing_analytics.model.lkml
 ```LookML
-include: "/app-marketing-facebook-ads-adapter/*.view"
-include: "/app-marketing-facebook-ads/*.view"
-include: "/app-marketing-facebook-ads/*.dashboard"
+include: "//app-marketing-facebook-ads-adapter/*.view"
+include: "//app-marketing-facebook-ads/*.view"
+include: "//app-marketing-facebook-ads/*.dashboard"
 ```
 
 For a reference of all of the fields names and definitions reference Facebook’s API documentation for [breakdowns](https://developers.facebook.com/docs/marketing-api/insights/breakdowns) and [parameters](https://developers.facebook.com/docs/marketing-api/insights/parameters).
