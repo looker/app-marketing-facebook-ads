@@ -60,7 +60,6 @@ view: fb_adset_key_base {
 
 view: fb_adset_date_fact {
   extends: [fb_campaign_date_fact, fb_adset_key_base, pdt_base]
-
   derived_table: {
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
