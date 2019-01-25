@@ -59,15 +59,15 @@ view: fb_adset_key_base {
 }
 
 view: fb_adset_date_fact {
-  extends: [fb_campaign_date_fact, fb_adset_key_base]
+  extends: [fb_campaign_date_fact, fb_adset_key_base, pdt_base]
 
   derived_table: {
-    distribution: "adset_id"
-    sortkeys: ["adset_id"]
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: adset_id { field: fact.adset_id }
       column: adset_name { field: fact.adset_name }
+      column: _distribution_alias {field: fact.adset_id }
+      column: _sortkey_alias {field: fact.adset_id }
     }
   }
   dimension: adset_id {

@@ -60,16 +60,16 @@ view: fb_ad_key_base {
 }
 
 view: fb_ad_date_fact {
-  extends: [fb_adset_date_fact, fb_ad_key_base]
+  extends: [fb_adset_date_fact, fb_ad_key_base, pdt_base]
 
   derived_table: {
-    distribution: "ad_id"
-    sortkeys: ["ad_id"]
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: ad_id { field: fact.ad_id }
       column: ad_name { field: fact.ad_name }
-    }
+      column: _distribution {field: fact.ad_id}
+      column: _sortkey {field: fact.ad_id}
+  }
   }
   dimension: ad_id {
     hidden: yes
@@ -77,4 +77,5 @@ view: fb_ad_date_fact {
   dimension: ad_name {
 #     required_fields: [account_id, campaign_id, adset_id, ad_id]
   }
+
 }
