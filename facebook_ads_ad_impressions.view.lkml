@@ -6,11 +6,9 @@ explore: facebook_ads_ad_impressions {
 }
 
 view: facebook_ads_ad_impressions {
-  extends: [ad_metrics_base, date_base, period_base, date_primary_key_base]
+  extends: [ad_metrics_base, date_base, period_base, date_primary_key_base, pdt_base]
 
   derived_table: {
-    sortkeys: ["_date"]
-    distribution: "_date"
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions_platform_and_device {
       column: _date { field: fact.date_date}
@@ -26,6 +24,8 @@ view: facebook_ads_ad_impressions {
       column: clicks { field: fact.total_clicks }
       column: conversions { field: fact.total_conversions }
       column: conversionvalue { field: fact.total_conversionvalue }
+      column: _distribution_alias {field: fact.date_raw }
+      column: _sortkey_alias {field: fact.date_raw }
     }
   }
 

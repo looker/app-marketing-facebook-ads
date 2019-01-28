@@ -56,15 +56,14 @@ view: fb_campaign_key_base {
 }
 
 view: fb_campaign_date_fact {
-  extends: [ad_metrics_parent_comparison_base, fb_account_date_fact, fb_campaign_key_base]
-
+  extends: [ad_metrics_parent_comparison_base, fb_account_date_fact, fb_campaign_key_base, pdt_base]
   derived_table: {
-    distribution: "campaign_id"
-    sortkeys: ["campaign_id"]
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: campaign_id { field: fact.campaign_id }
       column: campaign_name { field: fact.campaign_name }
+      column: _distribution {field: fact.campaign_id}
+      column: _sortkey {field: fact.campaign_id}
     }
   }
   dimension: campaign_id {
