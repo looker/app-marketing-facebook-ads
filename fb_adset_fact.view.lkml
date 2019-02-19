@@ -65,8 +65,12 @@ view: fb_adset_date_fact {
     explore_source: fb_ad_impressions {
       column: adset_id { field: fact.adset_id }
       column: adset_name { field: fact.adset_name }
-      column: _distribution_alias {field: fact.adset_id }
-      column: _sortkey_alias {field: fact.adset_id }
+      derived_column: _distribution_alias {
+        sql: adset_id ;;
+      }
+      derived_column: _sortkey_alias {
+        sql: adset_id ;;
+      }
     }
   }
   dimension: adset_id {

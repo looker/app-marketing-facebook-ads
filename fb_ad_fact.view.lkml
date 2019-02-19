@@ -67,8 +67,12 @@ view: fb_ad_date_fact {
     explore_source: fb_ad_impressions {
       column: ad_id { field: fact.ad_id }
       column: ad_name { field: fact.ad_name }
-      column: _distribution {field: fact.ad_id}
-      column: _sortkey {field: fact.ad_id}
+      derived_column: _distribution_alias {
+        sql: ad_id ;;
+      }
+      derived_column: _sortkey_alias {
+        sql: ad_id ;;
+      }
   }
   }
   dimension: ad_id {

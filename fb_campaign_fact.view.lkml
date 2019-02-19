@@ -62,8 +62,12 @@ view: fb_campaign_date_fact {
     explore_source: fb_ad_impressions {
       column: campaign_id { field: fact.campaign_id }
       column: campaign_name { field: fact.campaign_name }
-      column: _distribution {field: fact.campaign_id}
-      column: _sortkey {field: fact.campaign_id}
+      derived_column: _distribution_alias {
+        sql: campaign_id ;;
+      }
+      derived_column: _sortkey_alias {
+        sql: campaign_id ;;
+      }
     }
   }
   dimension: campaign_id {
