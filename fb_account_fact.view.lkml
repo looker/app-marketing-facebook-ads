@@ -59,6 +59,7 @@ view: fb_account_date_fact {
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
       column: _date { field: fact.date_date }
+      column: _date_raw { field: fact.date_raw }
       column: account_id { field: fact.account_id }
       column: account_name { field: fact.account_name }
       column: clicks {field: fact.total_clicks }
@@ -66,8 +67,12 @@ view: fb_account_date_fact {
       column: conversionvalue {field: fact.total_conversionvalue}
       column: cost {field: fact.total_cost}
       column: impressions { field: fact.total_impressions}
-      column: _distribution_alias {field: fact.date_raw }
-      column: _sortkey_alias {field: fact.date_raw }
+      derived_column: _distribution_alias {
+        sql: _date_raw ;;
+      }
+      derived_column: _sortkey_alias {
+        sql: _date_raw ;;
+      }
     }
   }
   dimension: account_id {
