@@ -67,7 +67,7 @@ explore: fb_period_fact {
 
   join: last_total {
     from: fb_date_fact
-    view_label: "Total This Period"
+    view_label: "Total Last Period"
     sql_on: ${fact.date_last_period} = ${total.date_period} ;;
     relationship: many_to_one
   }
@@ -119,11 +119,11 @@ view: fb_period_fact {
     }
 
     dimension: key_base {
-      hidden: yes
+      hidden: no
       sql:
       {% if _dialect._name == 'redshift' %}
         CAST(${account_id} AS VARCHAR)
-          {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
+          {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
             || '-' || CAST(${campaign_id} AS VARCHAR)
           {% endif %}
           {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
@@ -145,16 +145,16 @@ view: fb_period_fact {
         {% endif %}
         {% else %}
         CONCAT(
-          CAST(${account_id} AS STRING),
-        {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
-          "-", CAST(${campaign_id} AS STRING),
-        {% endif %}
-        {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
-          "-", CAST(${adset_id} AS STRING),
-        {% endif %}
-        {% if (ad._in_query or fact.adset_id._in_query) %}
-          "-", CAST(${ad_id} AS STRING)
-        {% endif %}
+          CAST(${account_id} AS STRING)
+            {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
+              ,"-", CAST(${campaign_id} AS STRING),
+            {% endif %}
+            {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
+              "-", CAST(${adset_id} AS STRING),
+            {% endif %}
+            {% if (ad._in_query or fact.adset_id._in_query) %}
+              "-", CAST(${ad_id} AS STRING)
+            {% endif %}
         )
       {% endif %} ;;
 
