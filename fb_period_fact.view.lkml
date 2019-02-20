@@ -119,7 +119,7 @@ view: fb_period_fact {
     }
 
     dimension: key_base {
-      hidden: no
+      hidden: yes
       sql:
       {% if _dialect._name == 'redshift' %}
         CAST(${account_id} AS VARCHAR)
