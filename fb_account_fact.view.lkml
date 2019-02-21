@@ -64,7 +64,6 @@ view: fb_account_date_fact {
       column: account_name { field: fact.account_name }
       column: clicks {field: fact.total_clicks }
       column: conversions {field: fact.total_conversions}
-      column: conversionvalue {field: fact.total_conversionvalue}
       column: cost {field: fact.total_cost}
       column: impressions { field: fact.total_impressions}
       derived_column: _distribution_alias {
