@@ -23,7 +23,6 @@ view: facebook_ads_ad_impressions {
       column: impressions { field: fact.total_impressions }
       column: clicks { field: fact.total_clicks }
       column: conversions { field: fact.total_conversions }
-      column: conversionvalue { field: fact.total_conversionvalue }
       column: _distribution_alias {field: fact.date_raw }
       column: _sortkey_alias {field: fact.date_raw }
     }
