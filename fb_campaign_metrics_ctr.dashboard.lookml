@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_ctr
-  title: FB Campaign Metrics - Click Through Rate
+  title: Facebook Ads - Click Through Rate
   extends: facebook_ads_base
   layout: newspaper
   elements:

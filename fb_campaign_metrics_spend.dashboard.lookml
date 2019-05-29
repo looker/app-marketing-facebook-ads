@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_spend
-  title: FB Campaign Metrics - Spend
+  title: Facebook Ads - Spend
   layout: newspaper
   extends: facebook_ads_base
   elements:

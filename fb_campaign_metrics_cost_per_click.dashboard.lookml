@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_cost_per_click
-  title: FB Campaign Metrics - Cost Per Click
+  title: Facebook Ads - Cost Per Click
   extends: facebook_ads_base
   layout: newspaper
   elements:

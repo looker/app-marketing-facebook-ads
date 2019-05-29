@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_cost_per_impression
-  title: FB Campaign Metrics - Cost Per Impression
+  title: Facebook Ads - Cost Per Impression
   extends: facebook_ads_base
   layout: newspaper
   elements:

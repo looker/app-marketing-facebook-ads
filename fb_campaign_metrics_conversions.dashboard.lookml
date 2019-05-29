@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_conversions
-  title: FB Campaign Metrics - Conversions
+  title: Facebook Ads - Conversions
   extends: facebook_ads_base
   elements:
   - title: Conversions To Date
