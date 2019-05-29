@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_cpa
-  title: FB Campaign Metrics - Cost Per Conversion
+  title: Facebook Ads - Cost Per Conversion
   extends: facebook_ads_base
   layout: newspaper
   elements:

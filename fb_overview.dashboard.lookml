@@ -1,6 +1,6 @@
 - dashboard: facebook_overview
   extends: facebook_ads_base
-  title: Facebook Overview
+  title: Facebook Ads Overview
   elements:
   - title: Click Rate
     name: Click Rate

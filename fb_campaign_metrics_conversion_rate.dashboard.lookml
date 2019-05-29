@@ -1,5 +1,5 @@
 - dashboard: fb_campaign_metrics_conversion_rate
-  title: FB Campaign Metrics - Conversion Rate
+  title: Facebook Ads - Conversion Rate
   extends: facebook_ads_base
   layout: newspaper
   elements:
