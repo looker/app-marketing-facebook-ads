@@ -181,20 +181,20 @@
     col: 0
     width: 24
     height: 11
-  - title: Cost Per Conversion By Country
-    name: Cost Per Conversion By Country
+  - title: Cost Per Conversion By State
+    name: Cost Per Conversion By State
     model: marketing_analytics
     explore: fb_ad_impressions_geo
     type: looker_geo_choropleth
     fields:
-    - fact.country
+    - fact.state
     - fact.average_cost_per_conversion
     sorts:
     - fact.average_cost_per_conversion desc
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
-    map: auto
+    map: usa
     map_projection: ''
     show_view_names: false
     quantize_colors: false

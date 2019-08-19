@@ -180,20 +180,20 @@
     col: 0
     width: 24
     height: 11
-  - title: Conversions By Country
-    name: Conversions By Country
+  - title: Conversions By State
+    name: Conversions By State
     model: marketing_analytics
     explore: fb_ad_impressions_geo
     type: looker_geo_choropleth
     fields:
-    - fact.country
+    - fact.state
     - fact.total_conversions
     sorts:
     - fact.total_conversions desc
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
-    map: auto
+    map: usa
     map_projection: ''
     show_view_names: false
     quantize_colors: false

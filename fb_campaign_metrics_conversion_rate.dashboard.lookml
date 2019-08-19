@@ -183,20 +183,20 @@
     col: 0
     width: 24
     height: 11
-  - title: Conversion Rate By Country
-    name: Conversion Rate By Country
+  - title: Conversion Rate By State
+    name: Conversion Rate By State
     model: marketing_analytics
     explore: fb_ad_impressions_geo
     type: looker_geo_choropleth
     fields:
-    - fact.country
+    - fact.state
     - fact.average_conversion_rate
     sorts:
     - fact.average_conversion_rate desc
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
-    map: auto
+    map: usa
     map_projection: ''
     show_view_names: false
     quantize_colors: false

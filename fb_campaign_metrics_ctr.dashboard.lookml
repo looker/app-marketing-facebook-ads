@@ -238,20 +238,20 @@
     col: 0
     width: 24
     height: 11
-  - title: Click Through Rate By Country
-    name: Click Through Rate By Country
+  - title: Click Through Rate By State
+    name: Click Through Rate By State
     model: marketing_analytics
     explore: fb_ad_impressions_geo
     type: looker_geo_choropleth
     fields:
-    - fact.country
+    - fact.state
     - fact.average_click_rate
     sorts:
     - fact.average_click_rate desc
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
-    map: auto
+    map: usa
     map_projection: ''
     show_view_names: false
     quantize_colors: false

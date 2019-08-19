@@ -186,18 +186,18 @@
     col: 0
     width: 24
     height: 11
-  - title: Cost Per Impression By Country
-    name: Cost Per Impression By Country
+  - title: Cost Per Impression By State
+    name: Cost Per Impression By State
     model: marketing_analytics
     explore: fb_ad_impressions_geo
     type: looker_geo_choropleth
     fields:
-    - fact.country
+    - fact.state
     - fact.average_cost_per_impression
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
-    map: auto
+    map: usa
     map_projection: ''
     show_view_names: false
     quantize_colors: false
