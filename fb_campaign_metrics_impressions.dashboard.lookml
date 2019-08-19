@@ -297,18 +297,18 @@
     col: 0
     width: 9
     height: 6
-  - title: Impressions By Country
-    name: Impressions By Country
+  - title: Impressions By State
+    name: Impressions By State
     model: marketing_analytics
     explore: fb_ad_impressions_geo
     type: looker_geo_choropleth
     fields:
-    - fact.country
+    - fact.state
     - fact.total_impressions
     limit: 500
     column_limit: 50
     query_timezone: America/Los_Angeles
-    map: auto
+    map: usa
     map_projection: ''
     show_view_names: false
     quantize_colors: false
