@@ -126,7 +126,7 @@ view: fb_period_fact {
           {% if (campaign._in_query or fact.campaign_id._in_query or adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
             || '-' || CAST(${campaign_id} AS VARCHAR)
           {% endif %}
-          {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query %}
+          {% if (adset._in_query or fact.adset_id._in_query or ad._in_query or fact.ad_id._in_query) %}
             || '-' || CAST(${adset_id} AS VARCHAR)
           {% endif %}
           {% if (ad._in_query or fact.adset_id._in_query) %}
