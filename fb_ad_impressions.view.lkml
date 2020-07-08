@@ -63,3 +63,23 @@ view: fb_ad_impressions_platform_and_device_template {
   extension: required
   extends: [date_base, period_base, fb_ad_metrics_base, ad_impressions_platform_and_device_fb_adapter]
 }
+
+view: actions_fb_custom_template {
+  extension: required
+  extends: [actions_fb_adapter]
+}
+
+view: actions_age_and_gender_fb_template {
+  extension: required
+  extends: [actions_age_and_gender_fb_adapter]
+}
+
+view: actions_hour_fb_template {
+  extension: required
+  extends: [actions_hour_fb_adapter]
+}
+
+view: actions_platform_and_device_fb_template {
+  extension: required
+  extends: [actions_platform_and_device_fb_adapter]
+}
