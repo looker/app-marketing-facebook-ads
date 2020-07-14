@@ -98,6 +98,7 @@ view: fb_period_fact {
     }
     dimension: campaign_id {
       hidden: yes
+      sql: CAST(${TABLE}.campaign_id  AS STRING);;
     }
     dimension: adset_name {
       required_fields: [adset_id]

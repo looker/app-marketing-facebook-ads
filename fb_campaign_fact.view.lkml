@@ -72,6 +72,7 @@ view: fb_campaign_date_fact {
   }
   dimension: campaign_id {
     hidden: yes
+     sql: CAST(${TABLE}.campaign_id AS STRING) ;;
   }
   dimension: campaign_name {
     required_fields: [account_id, campaign_id]
