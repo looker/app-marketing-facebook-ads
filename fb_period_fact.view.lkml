@@ -103,7 +103,7 @@ view: fb_period_fact {
       {% elsif _dialect._name == 'snowflake' %}
         TO_CHAR(${campaign_id})
       {% else %}
-        CAST(${ad_id} AS STRING)
+        CAST(${campaign_id} AS STRING)
       {% endif %} ;;
     }
     dimension: adset_name {
