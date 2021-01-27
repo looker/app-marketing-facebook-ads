@@ -60,7 +60,7 @@ view: fb_campaign_date_fact {
   derived_table: {
     datagroup_trigger: facebook_ads_etl_datagroup
     explore_source: fb_ad_impressions {
-      column: campaign_id { field: fact.campaign_id }
+      column: campaign_id { field: fact.campaign_id_string }
       column: campaign_name { field: fact.campaign_name }
       derived_column: _distribution_alias {
         sql: campaign_id ;;
@@ -72,7 +72,7 @@ view: fb_campaign_date_fact {
   }
   dimension: campaign_id {
     hidden: yes
-  }
+}
   dimension: campaign_name {
     required_fields: [account_id, campaign_id]
     label: "Campaign Name"

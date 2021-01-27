@@ -98,13 +98,6 @@ view: fb_period_fact {
     }
     dimension: campaign_id {
       hidden: yes
-      sql: {% if _dialect._name == 'redshift' %}
-        CAST(${campaign_id} AS VARCHAR)
-      {% elsif _dialect._name == 'snowflake' %}
-        TO_CHAR(${campaign_id})
-      {% else %}
-        CAST(${campaign_id} AS STRING)
-      {% endif %} ;;
     }
     dimension: adset_name {
       required_fields: [adset_id]
